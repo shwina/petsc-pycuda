@@ -17,7 +17,7 @@ run: build
 	${MPIEXEC} ${PYTHON} ${SCRIPT}.py
 
 ${MODULE}.so: ${MODULE}.pyx ${MODULE}impl.h
-	CC=${CC} F90=${FC} LDSHARED='${CLINKER} -shared' \
+	CC=${CXX} F90=${FC} LDSHARED='${CLINKER} -shared' \
 	${PYTHON} setup.py -q build_ext --inplace
 	${RM} -r build ${MODULE}_wrap.c
 
