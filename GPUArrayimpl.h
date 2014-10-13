@@ -18,4 +18,3 @@ VecGetGPUArray(Vec vec, PetscScalar **array)
     *array = thrust::raw_pointer_cast(cusparray->data());
     PetscFunctionReturn(0);
 }
-

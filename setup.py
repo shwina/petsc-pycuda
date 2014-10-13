@@ -21,7 +21,7 @@ def have_pyrex():
 build_src.have_pyrex = have_pyrex
 
 def configuration(parent_package='',top_path=None):
-    INCLUDE_DIRS = []
+    INCLUDE_DIRS = ['/home/atrikut/local/cusplibrary', '/home/atrikut/local/thrust/']
     LIBRARY_DIRS = []
     LIBRARIES    = []
 
