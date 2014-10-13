@@ -1,3 +1,8 @@
-from petsc4py cimport PETSc as petsc
+from petsc4py.PETSc cimport Vec,  PetscVec
+from petsc4py.PETSc import Error
 
-print "hi!"
+cdef extern from "GPUArrayimpl.h":
+    int VecGetGPUArray(PetscVec vec, double** array)
+
+def getGPUArray(Vec V):
+    print 'HI'
