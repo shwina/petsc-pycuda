@@ -5,4 +5,5 @@ cdef extern from "GPUArrayimpl.h":
     int VecGetGPUArray(PetscVec vec, double** array)
 
 def getGPUArray(Vec V):
-    print 'HI'
+    cdef double* array
+    VecGetGPUArray(V.vec, &array)
