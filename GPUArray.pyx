@@ -13,5 +13,5 @@ cdef extern from "stdint.h":
 def getGPUArray(Vec V):
     cdef double *array
     VecGetGPUArray(V.vec, &array)
-    G = gpuarray.empty(V.getSizes(), dtype=np.float64, gpudata=<uint64_t>array)
+    G = gpuarray.empty(V.getSizes(), dtype=np.float64, gpudata=int(<uint64_t>array))
     print G
