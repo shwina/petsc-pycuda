@@ -54,7 +54,7 @@ ext = Extension('GPUArray',
                 library_dirs = LIBRARY_DIRS,
                 runtime_library_dirs = LIBRARY_DIRS,
                 extra_compile_args = {'gcc': [],
-                                      'nvcc': ['-arch=sm_21', '--ptxas-options=-v', '-c', '--compiler-options', "'-fPIC'"]}
+                                      'nvcc': ['-arch=sm_35', '-c', '--compiler-options', "'-fPIC'"]}
                 )
 def customize_compiler_for_nvcc(self):
     """inject deep into distutils to customize how the dispatch
