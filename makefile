@@ -28,5 +28,7 @@ clean::
 
 test: test/test_GPUArrayimpl.o GPUArrayimpl.o
 	-${CLINKER} ${CPPFLAGS} -o test/test test/test_GPUArrayimpl.o GPUArrayimpl.o ${PETSC_LIB}
+	rm *.o
+	rm test/*.o
 
 MPIEXEC=
