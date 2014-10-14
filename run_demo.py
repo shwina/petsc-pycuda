@@ -6,4 +6,6 @@ v.create()
 v.setSizes(4)
 v.setType('cusp')
 
+GPUArray.getGPUArray(v)
+v.destroy()
 
