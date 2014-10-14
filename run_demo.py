@@ -5,7 +5,9 @@ v = petsc.Vec()
 v.create()
 v.setSizes(4)
 v.setType('cusp')
+v.set(2.0)
 
-GPUArray.getGPUArray(v)
+print v.array
+G = GPUArray.getGPUArray(v)
+print G.get()
 v.destroy()
-
