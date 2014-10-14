@@ -45,7 +45,7 @@ numpy_include = numpy.get_include()
 INCLUDE_DIRS += [numpy_include]
 
 ext = Extension('GPUArray',
-                sources = ['GPUArray.pyx'],
+                sources = ['GPUArray.pyx', 'GPUArrayimpl.cu'],
                 depends = ['GPUArrayimpl.h'],
                 include_dirs = INCLUDE_DIRS + [os.curdir],
                 libraries = LIBRARIES,
