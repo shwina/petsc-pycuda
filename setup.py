@@ -35,6 +35,7 @@ INCLUDE_DIRS += [petsc4py.get_include()]
 # CUDA
 from setup_cuda import locate_cuda
 CUDA = locate_cuda()
+print CUDA
 LIBRARY_DIRS += [CUDA['lib64']]
 LIBRARIES += ['cudart']
 INCLUDE_DIRS += [CUDA['include']]
@@ -47,6 +48,7 @@ INCLUDE_DIRS += [numpy_include]
 ext = Extension('GPUArray',
                 sources = ['GPUArray.pyx', 'GPUArrayimpl.cu'],
                 depends = ['GPUArrayimpl.h'],
+                language = 'c++',
                 include_dirs = INCLUDE_DIRS + [os.curdir],
                 libraries = LIBRARIES,
                 library_dirs = LIBRARY_DIRS,
