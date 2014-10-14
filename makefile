@@ -1,10 +1,9 @@
-# -*- makefile -*-
+include ${PETSC_DIR}/conf/variables
+include ${PETSC_DIR}/conf/rules
+CPPFLAGS=-I test/ -I .
 
 MPIEXEC=
 PYTHON=python
-
-.PHONY:test
-test: run clean
 
 SCRIPT=run_demo
 MODULE=GPUArray
@@ -27,6 +26,7 @@ clean::
 	${RM} *.py[co]
 	${RM} -r __pycache__
 
-include ${PETSC_DIR}/conf/variables
-include ${PETSC_DIR}/conf/rules
+test: test/test_GPUArrayimpl.o GPUArrayimpl.o
+	-${CLINKER} ${CPPFLAGS} -o test/test test/test_GPUArrayimpl.o GPUArrayimpl.o ${PETSC_LIB}
+
 MPIEXEC=
