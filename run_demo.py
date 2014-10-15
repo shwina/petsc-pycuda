@@ -12,7 +12,7 @@ print v.array
 
 G = GPUArray.getGPUArray(v)
 print 'GPUArray constructed from PETSc Vec:'
-print G.get()
+print G
 
 print 'Modified GPUArray:'
 G.fill(4.0)
