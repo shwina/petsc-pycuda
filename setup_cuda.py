@@ -1,11 +1,5 @@
 import  os
 from os.path import join as pjoin
-from setuptools import setup
-from distutils.extension import Extension
-from distutils.command.build_ext import build_ext
-import subprocess
-import numpy
-
 
 def find_in_path(name, path):
     "Find a file in a search path"
