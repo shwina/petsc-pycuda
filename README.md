@@ -11,6 +11,16 @@ from `petsc4py`.
 This project attempts to add this  functionality,
 making the memory accessible as a `PyCUDA GPUArray`.
 
+To use, you should have the following environment variables
+defined (for `setup.py`):
+
+* THRUST_DIR
+* CUSP_DIR
+* PETSC_DIR
+* PETSC_ARCH
+
+And then, just `make build` should create the extension `GPUArray.so`.
+
 The tests in `test_GPUArray.py`
 should give you a fairly good idea
 of how things work.
