@@ -25,6 +25,8 @@ clean::
 	${RM} ${MODULE}.c ${MODULE}*.so
 	${RM} *.py[co]
 	${RM} -r __pycache__
+	${RM} *.cpp
+	${RM} -rf build
 
 test: test/test_GPUArrayimpl.o GPUArrayimpl.o
 	-${CLINKER} ${CPPFLAGS} -o test/test test/test_GPUArrayimpl.o GPUArrayimpl.o ${PETSC_LIB}

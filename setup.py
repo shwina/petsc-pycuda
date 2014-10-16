@@ -6,13 +6,17 @@ from Cython.Distutils import build_ext
 import subprocess
 import numpy
 
+import os
+
+THRUST_DIR = os.environ['THRUST_DIR']
+CUSP_DIR = os.environ['CUSP_DIR']
+
 # cusp and thrust 
-INCLUDE_DIRS = ['/home/atrikut/local/cusplibrary', '/home/atrikut/local/thrust/']
+INCLUDE_DIRS = [THRUST_DIR, CUSP_DIR]
 LIBRARY_DIRS = []
 LIBRARIES    = []
 
 # PETSc
-import os
 PETSC_DIR  = os.environ['PETSC_DIR']
 PETSC_ARCH = os.environ.get('PETSC_ARCH', '')
 from os.path import join, isdir
