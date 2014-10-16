@@ -14,10 +14,10 @@ making the memory accessible as a `PyCUDA GPUArray`.
 To use, you should have the following environment variables
 defined (for `setup.py`):
 
-* THRUST_DIR
-* CUSP_DIR
-* PETSC_DIR
-* PETSC_ARCH
+* `THRUST_DIR`
+* `CUSP_DIR`
+* `PETSC_DIR`
+* `PETSC_ARCH`
 
 And then, just `make build` should create the extension `GPUArray.so`.
 
