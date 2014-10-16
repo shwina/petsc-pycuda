@@ -18,5 +18,6 @@ VecGetGPUArray(Vec vec, PetscScalar **array)
     cusp::array1d<PetscScalar, cusp::device_memory> *cusparray;
     VecCUSPGetArrayWrite(vec, &cusparray);
     *array = thrust::raw_pointer_cast(cusparray->data());
+    VecCUSPRestoreArrayWrite(vec, &cusparray);
     PetscFunctionReturn(0);
 }
