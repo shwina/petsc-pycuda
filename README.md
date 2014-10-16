@@ -9,7 +9,7 @@ the underlying device memory
 of a `cusp` vector
 from `petsc4py`. 
 This project attempts to add this  functionality,
-making the memory accessible as a `PyCUDA gpuArray`.
+making the memory accessible as a `PyCUDA GPUArray`.
 
 The tests in `test_GPUArray.py`
 should give you a fairly good idea
