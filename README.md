@@ -28,4 +28,4 @@ for the amazing software they develop:
 
 * `Cython` : http://cython.org/
 
-* `setup.py` is based on that from the project `npcuda-example: https://github.com/rmcgibbo/npcuda-example
+* `setup.py` is based on that from the project `npcuda-example`: https://github.com/rmcgibbo/npcuda-example
