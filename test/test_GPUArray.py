@@ -33,6 +33,7 @@ class TestGPUArray:
     def test_pycuda_to_petsc(self):
         vec_gpu = GPUArray.getGPUArray(self.vec)
         vec_gpu.fill(3.14)
+        GPUArray.updateVecStatus(self.vec)
         assert_allclose(self.vec.array, 3.14)
 
     def test_gpu_status_update(self):
