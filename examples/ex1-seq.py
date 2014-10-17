@@ -16,7 +16,7 @@ V.setType('cusp')
 V.setSizes(10)
 V.set(1.0)
 
-# Create a PyCUDA GPUArray that shares memory with the Vec:
+# Get a handle to the vector:
 varray = GPUArray.getGPUArray(V)
 
 # CUDA kernel:
@@ -32,6 +32,6 @@ mod = SourceModule("""
 func = mod.get_function('doublify')
 func(varray, block=(10,1,1))
 
-# Check that the Vec has changed:
+# Inform the Vec that its values have been udpated:
 GPUArray.updateVecStatus(V)
 print V.array
