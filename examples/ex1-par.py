@@ -1,3 +1,5 @@
+# Run this example with, say, 2 procs
+
 import sys
 sys.path.append('..')
 
