@@ -13,7 +13,7 @@ cdef extern from "GPUArrayimpl.h":
 def getGPUArray(Vec V):
     cdef double *array
     VecGetGPUArray(V.vec, &array)
-    G = gpuarray.GPUArray(V.getSize(), dtype=np.float64, allocator=None, gpudata=int(<uintptr_t>array))
+    G = gpuarray.GPUArray(V.getLocalSize(), dtype=np.float64, allocator=None, gpudata=int(<uintptr_t>array))
     return G
 
 def updateVecStatus(Vec V):
