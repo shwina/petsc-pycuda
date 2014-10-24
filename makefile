@@ -17,7 +17,7 @@ run: build
 
 ${MODULE}.so: ${MODULE}.pyx ${MODULE}impl.cu ${MODULE}impl.h
 	CC=${CXX} F90=${FC} LDSHARED='${CLINKER} -shared' \
-	${PYTHON} setup.py -q build_ext --inplace
+	${PYTHON} setup.py build_ext --inplace
 	${RM} -r build ${MODULE}_wrap.c
 
 .PHONY:clean
