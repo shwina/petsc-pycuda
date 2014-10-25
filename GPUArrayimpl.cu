@@ -26,7 +26,7 @@ VecGetGPUArray(Vec vec, PetscScalar **array)
 PetscErrorCode
 VecUpdateGPUStatus(Vec vec, PetscScalar **array)
 {
-    vec->valid_GPU_array = PETSC_CUSP_GPU;
-    //VecCUSPRestoreCUDAArray(vec, array);
+    //vec->valid_GPU_array = PETSC_CUSP_GPU;
+    VecCUSPRestoreCUDAArray(vec, array);
     PetscFunctionReturn(0);
 }
