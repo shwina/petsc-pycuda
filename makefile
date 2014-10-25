@@ -1,7 +1,6 @@
 include ${PETSC_DIR}/conf/variables
 include ${PETSC_DIR}/conf/rules
-CPPFLAGS=-I test/ -I .
-
+CPPFLAGS = -I . 
 MPIEXEC=
 PYTHON=python
 
@@ -15,10 +14,15 @@ build: ${MODULE}.so
 run: build
 	${MPIEXEC} ${PYTHON} ${SCRIPT}.py
 
-${MODULE}.so: ${MODULE}.pyx ${MODULE}impl.cu ${MODULE}impl.h
+${MODULE}.so: build_cuda ${MODULE}.pyx ${MODULE}impl.cu ${MODULE}impl.h
 	CC=${CXX} F90=${FC} LDSHARED='${CLINKER} -shared' \
 	${PYTHON} setup.py build_ext --inplace
 	${RM} -r build ${MODULE}_wrap.c
+
+.PHONY:build_cuda
+build_cuda: ${MODULE}impl.o
+	${CLINKER} ${MODULE}impl.o -shared -o lib${MODULE}impl.so ${PETSC_LIB}
+	${RM} ${MODULE}impl.o
 
 .PHONY:clean
 clean::

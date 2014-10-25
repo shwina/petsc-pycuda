@@ -8,7 +8,7 @@ from libc.stdint cimport uintptr_t
 
 cdef extern from "GPUArrayimpl.h":
     int VecGetGPUArray(PetscVec vec, double** array)
-    int VecUpdateGPUStatus(PetscVec vec)
+    int VecUpdateGPUStatus(PetscVec vec, double** array)
 
 def getGPUArray(Vec V):
     cdef double *array
@@ -17,4 +17,4 @@ def getGPUArray(Vec V):
     return G
 
 def updateVecStatus(Vec V):
-    VecUpdateGPUStatus(V.vec)
+    VecUpdateGPUStatus(V.vec, NULL)

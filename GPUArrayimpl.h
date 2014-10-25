@@ -1,5 +1,3 @@
 #include <petscvec.h>
-#include <petsc.h>
-
 PetscErrorCode VecGetGPUArray(Vec vec, PetscScalar **array);
-PetscErrorCode VecUpdateGPUStatus(Vec vec);
+PetscErrorCode VecUpdateGPUStatus(Vec vec, PetscScalar **array);
