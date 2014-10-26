@@ -8,7 +8,7 @@ from libc.stdint cimport uintptr_t
 
 cdef extern from "GPUArrayimpl.h":
     int VecGetGPUArray(PetscVec vec, double** array)
-    int VecUpdateGPUStatus(PetscVec vec, double** array)
+    int VecRestoreGPUArray(PetscVec vec, double** array)
 
 def getGPUArray(Vec V):
     cdef double *array
@@ -16,5 +16,5 @@ def getGPUArray(Vec V):
     G = gpuarray.GPUArray(V.getLocalSize(), dtype=np.float64, allocator=None, gpudata=int(<uintptr_t>array))
     return G
 
-def updateVecStatus(Vec V):
-    VecUpdateGPUStatus(V.vec, NULL)
+def restoreGPUArray(Vec V):
+    VecRestoreGPUArray(V.vec, NULL)

@@ -33,21 +33,21 @@ class TestGPUArray:
     def test_pycuda_to_petsc(self):
         vec_gpu = GPUArray.getGPUArray(self.vec)
         vec_gpu.fill(3.14)
-        GPUArray.updateVecStatus(self.vec)
+        GPUArray.restoreGPUArray(self.vec)
         assert_allclose(self.vec.array, 3.14)
 
     def test_gpu_status_update(self):
         # if you're reusing the GPUArray
-        # always call updateVecStatus
-        # in fact, call updateVecStatus
+        # always call restoreGPUArray
+        # in fact, call restoreGPUArray
         # everytime the buffer is updated
         # from the PyCUDA side
         vec_gpu = GPUArray.getGPUArray(self.vec)
         vec_gpu.fill(3.14)
-        GPUArray.updateVecStatus(self.vec)
+        GPUArray.restoreGPUArray(self.vec)
         assert_allclose(self.vec.array, 3.14)
         vec_gpu.fill(6.28)
-        GPUArray.updateVecStatus(self.vec)
+        GPUArray.restoreGPUArray(self.vec)
         assert_allclose(self.vec.array, 6.28)
 
     def teardown(self):

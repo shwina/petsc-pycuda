@@ -28,9 +28,13 @@ else:
     if PETSC_ARCH: pass # XXX should warn ...
     INCLUDE_DIRS += [join(PETSC_DIR, 'include')]
     LIBRARY_DIRS += [join(PETSC_DIR, 'lib')]
+
 LIBRARIES += [#'petscts', 'petscsnes', 'petscksp',
               #'petscdm', 'petscmat',  'petscvec',
               'petsc']
+
+LIBRARY_DIRS += [os.curdir]
+LIBRARIES += ['GPUArrayimpl']
 
 # PETSc for Python
 import petsc4py
@@ -48,9 +52,6 @@ INCLUDE_DIRS += [CUDA['include']]
 import numpy
 numpy_include = numpy.get_include() 
 INCLUDE_DIRS += [numpy_include]
-
-LIBRARIES += ['GPUArrayimpl']
-LIBRARY_DIRS += [os.curdir]
 
 ext = Extension('GPUArray',
                 sources = ['GPUArray.pyx'],
