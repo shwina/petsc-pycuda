@@ -35,7 +35,7 @@ mod = SourceModule("""
 func = mod.get_function('doublify')
 func(varray, block=(8,1,1))
 
-GPUArray.updateVecStatus(V_global)
+GPUArray.restoreGPUArray(V_global)
 
 # Update the 'ghost' element:
 da.globalToLocal(V_global, V_local)

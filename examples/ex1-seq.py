@@ -33,5 +33,5 @@ func = mod.get_function('doublify')
 func(varray, block=(10,1,1))
 
 # Inform the Vec that its values have been udpated:
-GPUArray.updateVecStatus(V)
+GPUArray.restoreGPUArray(V)
 print V.array
