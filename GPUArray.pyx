@@ -6,15 +6,15 @@ import numpy as np
 
 from libc.stdint cimport uintptr_t
 
-cdef extern from "GPUArrayimpl.h":
-    int VecGetGPUArray(PetscVec vec, double** array)
-    int VecRestoreGPUArray(PetscVec vec, double** array)
+cdef extern from "petsccusp.h":
+    int VecCUSPGetCUDAArray(PetscVec vec, double** array)
+    int VecCUSPRestoreCUDAArray(PetscVec vec, double** array)
 
 def getGPUArray(Vec V):
     cdef double *array
-    VecGetGPUArray(V.vec, &array)
+    VecCUSPGetCUDAArray(V.vec, &array)
     G = gpuarray.GPUArray(V.getLocalSize(), dtype=np.float64, allocator=None, gpudata=int(<uintptr_t>array))
     return G
 
 def restoreGPUArray(Vec V):
-    VecRestoreGPUArray(V.vec, NULL)
+    VecCUSPRestoreCUDAArray(V.vec, NULL)

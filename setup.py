@@ -33,9 +33,6 @@ LIBRARIES += [#'petscts', 'petscsnes', 'petscksp',
               #'petscdm', 'petscmat',  'petscvec',
               'petsc']
 
-LIBRARY_DIRS += [os.curdir]
-LIBRARIES += ['GPUArrayimpl']
-
 # PETSc for Python
 import petsc4py
 INCLUDE_DIRS += [petsc4py.get_include()]
