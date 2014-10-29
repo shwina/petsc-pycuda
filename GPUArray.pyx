@@ -12,9 +12,9 @@ cdef extern from "petsccusp.h":
 
 def getGPUArray(Vec V):
     cdef double *array
-    VecCUSPGetCUDAArray(V.vec, &array)
-    G = gpuarray.GPUArray(V.getLocalSize(), dtype=petsc.ScalarType, allocator=None, gpudata=int(<uintptr_t>array))
+    G = gpuarray.GPUArray(V.getLocalSize(), dtype=petsc.ScalarType, allocator=None, gpudata=V.getCUDAHandle())
     return G
 
 def restoreGPUArray(Vec V):
-    VecCUSPRestoreCUDAArray(V.vec, NULL)
+    dummy_int = 0
+    V.restoreCUDAHandle(dummy_int)

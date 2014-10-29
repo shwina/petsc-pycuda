@@ -18,7 +18,7 @@ print 'Modified GPUArray:'
 G.fill(4.0)
 print G
 
-GPUArray.updateVecStatus(v)
+GPUArray.restoreGPUArray(v)
 print 'PETSc Vec changes too:'
 print v.array
 
